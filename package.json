@@ -1,8 +1,17 @@
 {
   "name": "react-checkboxify",
-  "private": true,
-  "version": "0.0.0",
+  "description": "react-checkboxify is a fantastic package that allows you to easily add and utilize checkboxes in your React projects.",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "keywords": [
+    "checkbox",
+    "react-checkbox",
+    "rc-checkbox",
+    "group-checkbox"
+  ],
+  "author": "Mobin Karimi",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -21,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
+    "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
@@ -28,6 +38,8 @@
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   }
