@@ -1,6 +1,7 @@
 export default function Checkbox({
   name,
   onChange,
+  id,
   label,
   checked = false,
   disabled = false,
@@ -9,7 +10,8 @@ export default function Checkbox({
   inputClassName,
 }: {
   name: string;
-  onChange: any;
+  onChange: React.ChangeEvent<HTMLInputElement> | any;
+  id?: number | string;
   label?: string;
   checked?: boolean;
   disabled?: boolean;
@@ -23,6 +25,7 @@ export default function Checkbox({
         className={inputClassName}
         type="checkbox"
         id={name}
+        data-id={id || name}
         name={name}
         checked={checked}
         onChange={onChange}
