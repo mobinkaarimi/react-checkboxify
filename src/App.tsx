@@ -1,11 +1,35 @@
 // Core
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // Style
 import "./App.css";
 import Checkbox from "./components/Checkbox";
+import GroupCheckbox from "./components/GroupCheckbox";
 
 function App() {
   const [checboxStatus, setCheckboxStatus] = useState(false);
+  const [selected, setSelected] = useState([{
+    id: 1,
+    name: "mobin1",
+    checked: true,
+  },]);
+  let list = [
+    {
+      id: 1,
+      name: "mobin1",
+      
+    },
+    {
+      id: 2,
+      name: "mobin2",
+    },
+    {
+      id: 3,
+      name: "mobin3",
+    },
+  ];
+  // useEffect(() => {
+  //   console.log(selected);
+  // }, [selected]);
   return (
     <div>
       <Checkbox
@@ -16,6 +40,15 @@ function App() {
           setCheckboxStatus(e.target.checked);
         }}
       />
+
+      <div className="border rounded-lg py-10 mt-2">
+        <GroupCheckbox
+          parentClassName={"flex flex-col space-y-2"}
+          list={list}
+          selectedItems={selected}
+          setSelectedItems={setSelected}
+        />
+      </div>
     </div>
   );
 }
