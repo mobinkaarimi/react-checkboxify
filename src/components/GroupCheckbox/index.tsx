@@ -19,12 +19,10 @@ export default function GroupCheckbox(props: groupCheckBoxType) {
   const {
     list,
     hasSearch = false,
-    selectedItems,
     setSelectedItems,
     parentClassName = null,
     checkboxClassName = null,
     checkboxFilledClassName = null,
-    hasPrimaryItem = false,
     labelClassName = null,
     searchLabel = null,
     selectType = "single",
@@ -35,52 +33,68 @@ export default function GroupCheckbox(props: groupCheckBoxType) {
 
   useEffect(() => {
     setShowData(mainData);
-  }, []);
-
-  useEffect(() => {
-    if (selectedItems.length) {
+    let selectedFilter = mainData.filter((item: any) => item.checked);
+    if (selectType == "single") {
+      setSelectedItems(selectedFilter[0]);
+    } else if (selectType == "multi") {
+      setSelectedItems(selectedFilter);
     }
-  }, [selectedItems]);
+  }, [mainData]);
 
   useEffect(() => {
-    console.log(showData);
-    
-  }, [showData]);
+    let newList = mainData.filter((item: any) => item.name.includes(search));
+    setShowData(newList);
+  }, [search]);
 
   function checkBoxHandler(e: any) {
-    let existsInSelectedItems = selectedItems.find(
-      (item: any) => item.name == e.target.id,
-    );
-
-    let ali = showData.map((item: any) => {
-      if (item.name == e.target.id) {
-        if (item.checked) {
-          item.checked = false;
-        } else {
-          item.checked = true;
+    let updateList;
+    if (selectType == "multi") {
+      updateList = mainData.map((item: any) => {
+        if (item.name == e.target.id) {
+          if (item.checked) {
+            item.checked = false;
+          } else {
+            item.checked = true;
+          }
         }
-      }
-      return item;
-    });
-    setShowData(ali);
-
-    // let item = showData.find((item: any) => item.name == e.target.id);
-    // console.log(item)
-    // if (item.checked) {
-    //   // setShowData(prev => [...prev,item])
-    // } else {
-    //   item.checked = true;
-    //   setShowData((prev) => [...prev, item]);
-    // }
-    // setShowData(prev => [...prev, all])
+        return item;
+      });
+    } else if (selectType == "single") {
+      updateList = mainData.map((item: any) => {
+        if (item.name == e.target.id) {
+          if (item.checked) {
+            item.checked = false;
+          } else {
+            item.checked = true;
+          }
+        } else {
+          if (item.checked) {
+            item.checked = false;
+          }
+        }
+        return item;
+      });
+    }
+    setMainData(updateList);
   }
+
   return (
     <div className={parentClassName}>
+      {hasSearch ? (
+        <input
+          type="text"
+          placeholder={searchLabel}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      ) : (
+        ""
+      )}
       {showData.map(
         (item: { name: string; checked: boolean; label: string }, index) => {
           return (
             <Checkbox
-              labelClassName={checkboxFilledClassName}
+              parentClassName={checkboxFilledClassName}
+              labelClassName={labelClassName}
               inputClassName={checkboxClassName}
               key={index}
               name={item.name || ""}
