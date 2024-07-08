@@ -7,16 +7,11 @@ import GroupCheckbox from "./components/GroupCheckbox";
 
 function App() {
   const [checboxStatus, setCheckboxStatus] = useState(false);
-  const [selected, setSelected] = useState([{
-    id: 1,
-    name: "mobin1",
-    checked: true,
-  },]);
+  const [selected, setSelected] = useState([]);
   let list = [
     {
       id: 1,
       name: "mobin1",
-      
     },
     {
       id: 2,
@@ -27,9 +22,9 @@ function App() {
       name: "mobin3",
     },
   ];
-  // useEffect(() => {
-  //   console.log(selected);
-  // }, [selected]);
+  useEffect(() => {
+    console.log(selected);
+  }, [selected]);
   return (
     <div>
       <Checkbox
@@ -40,11 +35,12 @@ function App() {
           setCheckboxStatus(e.target.checked);
         }}
       />
-
       <div className="border rounded-lg py-10 mt-2">
         <GroupCheckbox
+          hasSearch={true}
           parentClassName={"flex flex-col space-y-2"}
           list={list}
+          selectType="single"
           selectedItems={selected}
           setSelectedItems={setSelected}
         />
