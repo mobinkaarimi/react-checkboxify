@@ -2,11 +2,10 @@
 import { useEffect, useState } from "react";
 // Style
 import "./App.css";
-import Checkbox from "./components/Checkbox";
 import GroupCheckbox from "./components/GroupCheckbox";
+import Checkbox from "./components/Checkbox";
 
 function App() {
-  const [checboxStatus, setCheckboxStatus] = useState(false);
   const [selected, setSelected] = useState([]);
   let list = [
     {
@@ -21,29 +20,47 @@ function App() {
       id: 3,
       name: "mobin3",
     },
+    {
+      id: 4,
+      name: "mobin4",
+    },
+    {
+      id: 5,
+      name: "mobin5",
+    },
+    {
+      id: 6,
+      name: "mobin6",
+    },
+    {
+      id: 7,
+      name: "mobin6+1",
+    },
   ];
-  useEffect(() => {
-    console.log(selected);
-  }, [selected]);
+
   return (
     <div>
-      <Checkbox
-        name="mobin"
-        checked={checboxStatus}
-        label="mobbin"
-        onChange={(e: any) => {
-          setCheckboxStatus(e.target.checked);
-        }}
-      />
       <div className="border rounded-lg py-10 mt-2">
         <GroupCheckbox
-          hasSearch={true}
-          parentClassName={"flex flex-col space-y-2"}
+          parentClassName="flex flex-col space-y-2"
+          hasSearch
+          searchOption={{ label: "search params" }}
+          selectType="multiple"
           list={list}
-          selectType="single"
           selectedItems={selected}
           setSelectedItems={setSelected}
         />
+        {/* <GroupCheckbox
+          hasSearch
+          searchOption={{}}
+          parentClassName={
+            "flex flex-col space-y-2 bg-red-500 max-h-44 overflow-y-scroll"
+          }
+          list={list}
+          selectType="multiple"
+          selectedItems={selected}
+          setSelectedItems={setSelected}
+        /> */}
       </div>
     </div>
   );
