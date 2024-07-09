@@ -1,14 +1,8 @@
-interface groupCheckboxType {
+export interface groupCheckBoxType {
   selectType?: "single" | "multiple";
   hasSearch?: boolean;
-  searchLabel?: string;
-  list: {
-    id?: number;
-    name: string;
-    checked?: boolean;
-    label?: string;
-    disabled?: boolean;
-  }[];
+  searchOption?: SearchOptionType;
+  list: listItemType[];
   selectedItems: any;
   setSelectedItems: any;
   hasPrimaryItem?: boolean;
@@ -16,4 +10,16 @@ interface groupCheckboxType {
   checkboxClassName?: string;
   labelClassName?: string;
   checkboxFilledClassName?: string;
+}
+interface SearchOptionType {
+  label?: string;
+  className?: string;
+  disabled?: boolean;
+}
+export interface listItemType {
+  id?: number;
+  name: string;
+  checked?: boolean;
+  label?: string;
+  disabled?: boolean;
 }
