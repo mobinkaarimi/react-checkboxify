@@ -10,6 +10,11 @@ export interface groupCheckBoxType {
   checkboxClassName?: string;
   labelClassName?: string;
   checkboxFilledClassName?: string;
+  customIcon?: {
+    checked: string;
+    unChecked: string;
+    size: number;
+  } | null;
 }
 interface SearchOptionType {
   label?: string;
