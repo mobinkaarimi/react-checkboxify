@@ -13,6 +13,7 @@ export default function GroupCheckbox(props: groupCheckBoxType) {
     labelClassName = "",
     searchOption = { label: "", className: "", disabled: false },
     selectType = "single",
+    customIcon = null,
   } = props;
   const [mainData, setMainData] = useState(list);
   const [showData, setShowData] = useState<listItemType[]>([]);
@@ -90,6 +91,7 @@ export default function GroupCheckbox(props: groupCheckBoxType) {
             checked={item.checked}
             label={item.label || item.name}
             onChange={checkBoxHandler}
+            customIcon={customIcon}
           />
         );
       })}
