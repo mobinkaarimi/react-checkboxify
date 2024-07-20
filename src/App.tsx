@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import GroupCheckbox from "./components/GroupCheckbox";
 import Checkbox from "./components/Checkbox";
-
+import checkboxs from "./assets/Checkbox.svg";
+import checkboxActive from "./assets/CheckboxActive.svg";
 function App() {
-  const [selected, setSelected] = useState([]);
+  const [selected, setSelected] = useState(false);
   let list = [
     {
       id: 1,
@@ -37,19 +38,33 @@ function App() {
       name: "mobin6+1",
     },
   ];
-
+  useEffect(() => {
+    console.log(selected);
+  }, [selected]);
   return (
     <div>
       <div className="border rounded-lg py-10 mt-2">
-        <GroupCheckbox
-          parentClassName="flex flex-col space-y-2"
-          hasSearch
+        <Checkbox
+          name={list[0].name}
+          onChange={(e: any) => setSelected(!selected)}
+          id={1}
+          checked={selected}
+          label="hell"
+          parentClassName="flex flex-row space-x-4 mx-4 items-center"
+          customIcon={{
+            checked: checkboxs,
+            unChecked: checkboxActive,
+            size: 50,
+          }}
+        />
+        {/* <GroupCheckbox
+          parentClassName="flex flex-col space-y-2 bg-red-500"
           searchOption={{ label: "search params" }}
           selectType="multiple"
           list={list}
           selectedItems={selected}
           setSelectedItems={setSelected}
-        />
+        /> */}
         {/* <GroupCheckbox
           hasSearch
           searchOption={{}}
