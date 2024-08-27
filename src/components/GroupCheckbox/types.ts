@@ -20,6 +20,7 @@ interface SearchOptionType {
   label?: string;
   className?: string;
   disabled?: boolean;
+  emptyComponent?: any;
 }
 export interface listItemType {
   id?: number;

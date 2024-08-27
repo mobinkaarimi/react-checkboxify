@@ -79,22 +79,26 @@ export default function GroupCheckbox(props: groupCheckBoxType) {
           onChange={(e) => setSearch(e.target.value)}
         />
       )}
-      {showData.map((item: listItemType, index: number) => {
-        return (
-          <Checkbox
-            disabled={item.disabled}
-            parentClassName={checkboxFilledClassName}
-            labelClassName={labelClassName}
-            inputClassName={checkboxClassName}
-            key={index}
-            name={item.name || ""}
-            checked={item.checked}
-            label={item.label || item.name}
-            onChange={checkBoxHandler}
-            customIcon={customIcon}
-          />
-        );
-      })}
+      {showData.length
+        ? showData.map((item: listItemType, index: number) => {
+            return (
+              <Checkbox
+                disabled={item.disabled}
+                parentClassName={checkboxFilledClassName}
+                labelClassName={labelClassName}
+                inputClassName={checkboxClassName}
+                key={index}
+                name={item.name || ""}
+                checked={item.checked}
+                label={item.label || item.name}
+                onChange={checkBoxHandler}
+                customIcon={customIcon}
+              />
+            );
+          })
+        : hasSearch
+          ? searchOption.emptyComponent || <p>Not Found!</p>
+          : null}
     </div>
   );
 }
