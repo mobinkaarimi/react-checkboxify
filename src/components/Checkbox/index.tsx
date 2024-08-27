@@ -1,3 +1,4 @@
+import GroupCheckbox from "../GroupCheckbox";
 export default function Checkbox({
   name,
   onChange,
@@ -76,3 +77,4 @@ export default function Checkbox({
     </label>
   );
 }
+export { GroupCheckbox };
