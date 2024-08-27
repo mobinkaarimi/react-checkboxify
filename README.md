@@ -175,7 +175,7 @@ export default () => <checkbox />;
   </tbody>
 </table>
 
-Online demo: http://react-component.github.io/checkbox/
+Online demo: https://mobinkaarimi.github.io/react-checkboxify/
 
 ## License
 
