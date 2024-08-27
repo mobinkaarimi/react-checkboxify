@@ -1,0 +1,43 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+.div1,
+.div2,
+.div3,
+.div4 {
+  border: 1px solid;
+  @apply rounded-lg;
+  @apply border-gray-600;
+  @apply transition-colors;
+  @apply duration-300;
+  @apply overflow-hidden;
+}
+.div1 {
+  grid-area: 1 / 1 / 5 / 4;
+}
+
+.div2 {
+  grid-area: 5 / 1 / 6 / 4;
+}
+.div3 {
+  grid-area: 2 / 4 / 6 / 7;
+}
+.div4 {
+  grid-area: 1 / 4 / 2 / 7;
+}
+.div1:hover,
+.div2:hover,
+.div3:hover,
+.div4:hover {
+  @apply border-primary-orange;
+}
+.div2:hover > .header,
+.div1:hover > .header,
+.div3:hover > .header,
+.div4:hover > .header {
+  @apply !border-b-primary-orange;
+}
