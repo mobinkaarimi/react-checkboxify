@@ -1,7 +1,7 @@
 {
   "name": "react-checkboxify",
   "description": "react-checkboxify is a fantastic package that allows you to easily add and utilize checkboxes in your React projects.",
-  "homepage": "https://github.com/mobinkaarimi/react-checkboxify",
+  "homepage": "https://github.com/mobinkaarimi/react-checkboxify/tree/examples",
   "private": false,
   "version": "1.0.0",
   "type": "module",
@@ -24,7 +24,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "format": "prettier -write \"src/**/*.{ts,tsx}\"",
-    "predeploy": "vite build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
