@@ -4,5 +4,5 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "https://mobinkaarimi.github.io/react-checkboxify/",
+  base: "/react-checkboxify/",
 });
