@@ -1,10 +1,6 @@
 import { useState } from "react";
 import Checkbox from "../Checkbox";
 import "./style.css";
-import CheckboxActive from "../../assets/checkbox-active-icon.svg";
-import checkboxEmpty from "../../assets//checkbox-empty-icon.svg";
-import checkboxIcon1 from "../../assets/checkbox-icon-1.svg";
-import checkboxIcon2 from "../../assets/checkbox-icon-2.svg";
 
 import GroupCheckbox from "../GroupCheckbox";
 export default function SectionOne() {
@@ -107,8 +103,10 @@ export default function SectionOne() {
             }}
             list={list}
             customIcon={{
-              checked: CheckboxActive,
-              unChecked: checkboxEmpty,
+              checked:
+                "https://raw.githubusercontent.com/mobinkaarimi/codepen-assets/react-checkboxify/icons/checkbox-active-icon.svg",
+              unChecked:
+                "https://raw.githubusercontent.com/mobinkaarimi/codepen-assets/react-checkboxify/icons/checkbox-empty-icon.svg",
               size: 30,
             }}
             selectedItems={groupSelected}
@@ -150,8 +148,10 @@ export default function SectionOne() {
             }}
             list={list2}
             customIcon={{
-              checked: checkboxIcon1,
-              unChecked: checkboxIcon2,
+              checked:
+                "https://raw.githubusercontent.com/mobinkaarimi/codepen-assets/react-checkboxify/icons/checkbox-icon-1.svg",
+              unChecked:
+                "https://raw.githubusercontent.com/mobinkaarimi/codepen-assets/react-checkboxify/icons/checkbox-icon-2.svg",
               size: 30,
             }}
             selectedItems={groupOneSelected}

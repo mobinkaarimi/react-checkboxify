@@ -1,7 +1,6 @@
 import "highlight.js/styles/atom-one-dark.css";
 import "../style.css";
-import CheckboxActive from "../../../assets/checkbox-active-icon.svg";
-import checkboxEmpty from "../../../assets//checkbox-empty-icon.svg";
+
 
 import { useState } from "react";
 import GroupCheckbox from "../../GroupCheckbox";
@@ -101,8 +100,10 @@ export default function Search() {
             labelClassName="font-bold"
             list={list}
             customIcon={{
-              checked: CheckboxActive,
-              unChecked: checkboxEmpty,
+              checked:
+                "https://raw.githubusercontent.com/mobinkaarimi/codepen-assets/react-checkboxify/icons/checkbox-active-icon.svg",
+              unChecked:
+                "https://raw.githubusercontent.com/mobinkaarimi/codepen-assets/react-checkboxify/icons/checkbox-empty-icon.svg",
               size: 30,
             }}
             selectedItems={groupSelected}
